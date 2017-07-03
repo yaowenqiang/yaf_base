@@ -24,6 +24,9 @@ yaf base framework from codejm
     - 框架:yaf(需安装php扩展)
     - composer(生产环境优化自动加载：composer dump-autoload --optimize)
     - xhprof(请使用鸟哥分支:https://github.com/laruence/xhprof.git,graphviz:2.36.0,xhprof站点自行配置)
+    - PDO:mysql扩展
+    - xdebug(可选，装上xdebug并开启profile功能后可以比较清晰的看到整个代码的执行过程，方便定位问题以及做性能测试)
+    * tideways(推荐安装，替换掉xhprof,由于xhprof已经多年没维护，比较陈旧，关于tideways和详细介绍和安装指南可以参考http://blog.it2048.cn/article_tideways-xhgui.html?spm=5176.100239.blogcont98639.18.usAsOR)
 
 ### 获取代码
 ``` shell
@@ -82,7 +85,13 @@ php cli.php request_uri="/controller/action"
         ▸ Validation/   -- 验证类
         ▸ vendor/       -- composer文件目录
       ▸ models/         -- model 目录
-      ▸ modules/        -- 模块目录
+      ▸ modules/        -- 模块目录(默认没有，需要手动建)
+          * Backend     -- 手动建
+	      * controllers
+	      * views
+	        * layouts        -- 手动建
+	          * base.html    -- 从Application/views/layouts/base.html拷贝过来
+	      * models            -- 这三个目录是后面生成的代码复制过来的
       ▸ plugins/        -- 插件目录
       ▸ views/          -- 默认模块view
         Bootstrap.php*  -- 程序引导初始化文件
@@ -97,7 +106,9 @@ php cli.php request_uri="/controller/action"
 * 修改 ./data/crud-admin/src/crud.php 数据库配置
 * $ php crud.php
 * 复制对应文件到程序对应目录
-
+### 后台访问入口
+* YOUR_DOMAIN/backend/members/index
+* jquery.min.js 和 bootstrap.min.js使用的是cdn的链接，如果是内网使用的话需要把文件下载到public/js目录处，然后修改layouts/base.html中对应文件的地址,有一个css文件也是使用的cdn的地址，不过原地址已经打不开了，可直接注释或删除，不影响正常使用
 ### cache code
 ``` php
 $config = \Yaf_Application::app()->getConfig()->cache->toArray();
