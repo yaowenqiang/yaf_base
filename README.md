@@ -26,7 +26,7 @@ yaf base framework from codejm
     - xhprof(请使用鸟哥分支:https://github.com/laruence/xhprof.git,graphviz:2.36.0,xhprof站点自行配置)
     - PDO:mysql扩展
     - xdebug(可选，装上xdebug并开启profile功能后可以比较清晰的看到整个代码的执行过程，方便定位问题以及做性能测试)
-    * tideways(推荐安装，替换掉xhprof,由于xhprof已经多年没维护，比较陈旧，关于tideways和详细介绍和安装指南可以参考http://blog.it2048.cn/article_tideways-xhgui.html?spm=5176.100239.blogcont98639.18.usAsOR　，windows版的目前只支持php 5.5和5.6)
+    * tideways(推荐安装，替换掉xhprof,由于xhprof已经多年没维护，比较陈旧，关于tideways和详细介绍和安装指南可以参考http://blog.it2048.cn/article_tideways-xhgui.html?spm=5176.100239.blogcont98639.18.usAsOR　，更新一下，windows下7.1是支持的，不过只支持php no-thread-safe版本，只是官方网站上只找到了5.6的扩展，详细信息请参考　http://www.drupalonwindows.com/en/blog/profiling-drupal-xhprof-uprofiler-tideways-php7-linux-and-windows#settingup  64位-nts的可直接在些页面行下载)
 
 ### 获取代码
 ``` shell
